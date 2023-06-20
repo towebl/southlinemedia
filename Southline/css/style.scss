@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Marck+Script&family=Pangolin&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: 'Pangolin', cursive;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: .5s linear;
+    -webkit-transition: .5s linear;
+    -moz-transition: .5s linear;
+    -ms-transition: .5s linear;
+    -o-transition: .5s linear;
+}
+
+$yellow: #ffd000;
+$black: #000;
+$white: #ffff;
+$light-bg: #eee;
+$dark-bg: #aaa;
+$border: .2rem solid $black;
+$box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+
+
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 1.5rem;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbat-track{
+        background: $white;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background: $black;
+    }
+}
+
+section {
+    padding: 5rem 9%;
+}
+
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    color: $yellow;
+    margin-bottom: 7rem;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    border: $border;
+    color: $yellow;
+    cursor: pointer;
+    background: none;
+    font-size: 1.7rem;
+    padding: 1rem 3rem;
+
+    &:hover {
+        background: $yellow;
+        color: $black;
+    }
+    
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 9%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+
+    .logo {
+        margin-right: auto;
+        font-size: 2.5rem;
+        color: $black;
+        font-weight: bolder;
+
+        i{
+            color: $yellow;
+        }
+    }
+
+    .navbar {
+
+        a{
+            margin-left: 2rem;
+            font-size: 1.7rem;
+            color: $light-bg;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+
+        #nav-close {
+            font-size: 4.7rem;
+            cursor: pointer;
+            color: $black;
+            display: none;
+
+            &:hover {
+                transform: rotate(120deg);
+                -webkit-transform: rotate(120deg);
+                -moz-transform: rotate(120deg);
+                -ms-transform: rotate(120deg);
+                -o-transform: rotate(120deg);
+}
+        }
+    }
+
+    .icons a,
+    .icons div {
+        font-size: 2.5rem;
+        margin-left: 2rem;
+        cursor: pointer;
+        color: $black;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+
+    #menu-btn {
+        display: none;
+    }
+}
+
+
+
+
+/*       Seacrch Form        */
+.search-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0,.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transform: translateY(-110%);
+
+    &.active {
+        transform: translateY(0);
+    }
+
+    #close-search {
+        position: absolute;
+        top: 1.5rem;
+        right: 2.5rem;
+        cursor: pointer;
+        color: $white;
+        font-size: 6rem;
+
+        &:hover {
+            color: $yellow;
+        }
+    }
+
+    form {
+        width: 70rem;
+        padding: 0 2rem;
+        padding-bottom: 2rem;
+        border-bottom: .2rem solid $white;
+        display: flex;
+        align-items: center;
+
+        input {
+            width: 100%;
+            font-size: 2rem;
+            color: $white;
+            text-transform: none;
+            background: none;
+            padding-right: 2rem;
+
+            &::placeholder {
+                color: $dark-bg;
+            }
+        }
+
+        label {
+            font-size: 3rem;
+            cursor: pointer;
+            color: $white;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+    }
+}
+
+
+
+
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Home Section    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    *\
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Home Section    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    */
+
+.home {
+    padding: 0;
+
+    .box {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background-size: cover !important;
+        background-position: center !important;
+        justify-content: flex-end;
+        padding: 2rem 9%;
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -10;
+        }
+
+        &.second {
+            justify-content: flex-start;
+        }
+
+        .content {
+            width: 50rem;
+            z-index: 100;
+
+            span {
+                font-size: 4rem;
+                color: $light-bg;
+            }
+
+            h3 {
+                color: $yellow;
+                font-size: 6rem;
+                padding-top: .5rem;
+                text-transform: uppercase;
+            }
+
+            p {
+                line-height: 2;
+                font-size: 1.5rem;
+                padding: 1rem 0;
+                color: $white;
+            }
+        }
+    }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 4rem;
+    color: $yellow;
+}
+
+
+
+
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Blog Section    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    *\
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Blog Section    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    */
+
+.blogs {
+
+    .slide {
+        text-align: center;
+        width: 35rem;
+        padding: 2rem;
+
+        img {
+            height: 25rem;
+            width: 100%;
+            object-fit: cover;
+            border-radius: .5rem;
+            -webkit-border-radius: .5rem;
+            -moz-border-radius: .5rem;
+            -ms-border-radius: .5rem;
+            -o-border-radius: .5rem;
+        }
+
+        .icons {
+            background: $black;
+            padding: 1rem;
+            position: relative;
+            top: -2rem;
+            display: inline-block;
+            border-radius: .5rem;
+            -webkit-border-radius: .5rem;
+            -moz-border-radius: .5rem;
+            -ms-border-radius: .5rem;
+            -o-border-radius: .5rem;
+
+            a {
+                font-size: 1.4rem;
+                color: $white;
+                margin: 0 1rem;
+                
+                &:hover {
+                    color: $yellow;
+                }
+
+                i {
+                    padding-right: .5rem;
+                    color: $yellow;
+                }
+            }
+        }
+
+        h3 {
+            font-size: 2rem;
+            color: $black;
+        }
+
+        p {
+            font-size: 1.4rem;
+            padding: 1rem 0;
+            line-height: 2;
+            color: $black;
+        }
+    }
+}
+
+
+
+
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Footer Section    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    *\
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Footer Section    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    */
+
+.footer {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/gallery/gallery8.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    .box-container {
+        @include grid(25rem);
+
+        .box {
+
+            h3 {
+                font-size: 2rem;
+                padding: 1.5rem 0;
+                color: $white;
+            }
+
+            a {
+                display: block;
+                font-size: 1.4rem;
+                color: $white;
+                padding: 1rem 0;
+
+                i{
+                    color: $yellow;
+                    padding-right: 0.5rem;
+                }
+
+                &:hover {
+                    color: $yellow;
+
+                    i{
+                        padding-right: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .credit {
+        text-align: center;
+        margin-top: 2.5rem;
+        padding: 1rem;
+        padding-top: 2.5rem;
+        font-size: 2rem;
+        color: $white;
+
+        span {
+            color: $yellow;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Media Qeury    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    *\
+
+/*    {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Media Qeury    }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}    */
+
+@media (max-width: 1200px) {
+
+    .header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+
+    .home .box {
+        justify-content: center;
+        
+        &.second {
+            justify-content: center;
+        }
+        
+        .content {
+            text-align: center;
+
+            span {
+                font-size: 3rem;
+            }
+
+            h3 {
+                font-size: 4rem;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 991px) {
+
+    html {
+        font-size: 55%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    
+    .header {
+
+        #menu-btn{
+            display: inline-block;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: -110%;
+            background: $white;
+            z-index: 10000;
+            width: 35rem;
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+
+            &.active {
+                left: 0;
+                box-shadow: 0 0 0 100vw rgba(0, 0, 0,.8);
+            }
+
+            a {
+                margin: 1rem 0;
+                font-size: 3rem;
+            }
+
+            #nav-close {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1.5rem;
+            }
+        }
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        margin-top: 67rem;
+    }
+}
+
+
+@media (max-width: 450px) {
+    
+    html {
+        font-size: 50%;
+    }
+}
